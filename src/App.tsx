@@ -4,6 +4,7 @@ import { Grid } from '@mui/material';
 //import viteLogo from '/vite.svg'
 import HeaderUI from './components/HeaderUI';
 import AlertUI from './components/AlertUI';
+import SelectorUI from './components/SelectorUI';
 import './App.css'
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
          <Grid size={{ xs: 12, md: 12 }} container justifyContent="right" alignItems="center" ><AlertUI description="No se preveen lluvias"/></Grid>
 
          {/* Selector */}
-         <Grid size={{ xs: 12, md: 3 }} >Elemento: Selector</Grid>
+         <Grid size={{ xs: 12, md: 3 }} >Elemento: <SelectorUI/></Grid>
 
          {/* Indicadores */}
          <Grid size={{ xs: 12, md: 9 }} >Elemento: Indicadores</Grid>
