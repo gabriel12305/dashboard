@@ -40,15 +40,28 @@ function App() {
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }}>
-            <IndicatorUI title='Temperatura aparente' description='XX°C' />
+
+            {dataFetcherOutput &&
+              (<IndicatorUI
+                title='Temperatura aparente'
+                description={`${dataFetcherOutput.current.apparent_temperature} ${dataFetcherOutput.current_units.apparent_temperature}`} />)
+            }
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }}>
-            <IndicatorUI title='Velocidad del Viento' description='XX°C' />
+            {dataFetcherOutput &&
+              (<IndicatorUI
+                title='Velocidad del viento'
+                description={`${dataFetcherOutput.current.wind_speed_10m} ${dataFetcherOutput.current_units.wind_speed_10m}`} />)
+            }
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }}>
-            <IndicatorUI title='Humedad Relativa' description='XX°C' />
+            {dataFetcherOutput &&
+              (<IndicatorUI
+                title='Humedad Relativa'
+                description={`${dataFetcherOutput.current.relative_humidity_2m} ${dataFetcherOutput.current_units.relative_humidity_2m}`} />)
+            }
           </Grid>
 
         </Grid>
