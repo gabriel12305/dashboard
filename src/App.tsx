@@ -7,6 +7,8 @@ import AlertUI from './components/AlertUI';
 import SelectorUI from './components/SelectorUI';
 import IndicatorUI from './components/IndicatorUI';
 import useFetchData from './functions/useFetchData';
+import TableUI from './components/TableUI';
+import ChartUI from './components/ChartUI';
 import './App.css'
 
 function App() {
@@ -67,10 +69,18 @@ function App() {
         </Grid>
 
         {/* Gráfico */}
-        <Grid size={{ xs: 12, md: 6 }} sx={{ display: { xs: "none", md: "block" } }} >Elemento: Gráfico</Grid>
+        <Grid size={{ xs: 12, md: 6 }} sx={{ display: { xs: "none", md: "block" } }} >
+          {dataFetcherOutput.data && 
+            (<ChartUI  value1='Temperatura' value2='Velocidad del Viento' value3='Hora' arrValues1={dataFetcherOutput.data.hourly.temperature_2m} arrValues2={dataFetcherOutput.data.hourly.wind_speed_10m} arrLabels={dataFetcherOutput.data.hourly.time}/>)
+          }
+        </Grid>
 
         {/* Tabla */}
-        <Grid size={{ xs: 12, md: 6 }} sx={{ display: { xs: "none", md: "block" } }}>Elemento: Tabla</Grid>
+        <Grid size={{ xs: 12, md: 6 }} sx={{ display: { xs: "none", md: "block" } }}>
+          {dataFetcherOutput.data && 
+            (<TableUI  nombre1='Horad' nombre2='Temperatura' nombre3='Velocidad del Viento'  arrLabels={dataFetcherOutput.data.hourly.time} arrValues1={dataFetcherOutput.data.hourly.temperature_2m} arrValues2={dataFetcherOutput.data.hourly.wind_speed_10m}/>)
+          }
+          </Grid>
 
         {/* Información adicional */}
         <Grid size={{ xs: 12, md: 12 }} >Elemento: Información adicional</Grid>
